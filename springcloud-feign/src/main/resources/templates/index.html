@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- 引入jquery -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+
+
+    <!-- 引入bootstrap的css -->
+    <link  href="../js/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <!-- 引入bootstrap-treeview的css -->
+    <link  href="../js/treeview/bootstrap-treeview.min.css" rel="stylesheet" >
+    <!-- 引入bootstrap-addTabs的css -->
+    <link  href="../js/addTabs/addTabs.css" rel="stylesheet" >
+    <!-- 引入bootstrap-table的css -->
+    <link  href="../js/table/bootstrap-table.min.css" rel="stylesheet" >
+    <!-- 引入fileinput的css -->
+    <link type="text/css" rel="stylesheet" href="../js/fileinput/css/fileinput.min.css" />
+
+
+
+
+    <!-- 引入my97 -->
+    <script type="text/javascript" src="../js/my97/WdatePicker.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="../js/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="../js/treeview/bootstrap-treeview.min.js"></script>
+    <!-- 引入bootstrap的js-->
+    <script type="text/javascript" src="../js/addTabs/addTabs.js"></script>
+    <!-- 引入bootstrap-table的js-->
+    <script type="text/javascript" src="../js/table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="../js/table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <!-- 引入bootbox.js -->
+    <script type="text/javascript" src="../js/bootbox/bootbox.js"></script>
+    <!-- 引入fileinput的js -->
+    <script type="text/javascript" src="../js/fileinput/js/fileinput.min.js"></script>
+    <!--  引入fileinput的js -->
+    <script type="text/javascript" src="../js/fileinput/js/locales/zh.js"></script>
+
+
+    <script type="text/javascript" src="../js/fileinput/themes/fa/theme.js"></script>
+
+    <style type="text/css">
+        body {padding-top:100px;}
+        .load{
+            position: absolute;
+            left: 30%;
+            top: 28px;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .load a{
+            text-decoration: none;
+            color: #999;
+            margin: 0 150px;
+        }
+    </style>
+
+</head>
+<body>
+<input class="form-control" id="CarName"/>
+<button onclick="searchCar()" type="button" class="btn btn-danger"></i>搜索</button>
+
+<div class="table table-hover" id="bookTable"></div>
+
+</body>
+<script>
+
+    $(function () {
+        initTable();
+    })
+
+    initTable = function(){
+        $("#bookTable").bootstrapTable({
+            toolbar:'#toolbar',
+            url:'../order/queryCarList',//获取数据地址
+            striped: true,//隔行变色
+            minimumCountColumns:2,//最小留几列 默认值1
+            pagination:true,//开启分页
+            paginationLoop:true,//开启分页无限循环
+            pageNumber:1,//当前页数
+            pageSize:5,//每页条数
+            pageList:[5,10,15,20],//如果设置了分页，设置可供选择的页面数据条数。设置为All 则显示所有记录。
+            sidePagination:"server",//
+            method:'get',//发送请求的方式
+            contentType:"application/x-www-form-urlencoded",//必须的否则条件查询时会乱码
+            queryParams:function(obj){
+                var startTime = $("#CarName").val();//获取文本框的值
+                // var endTime =  $("#endTime").val();//获取文本框的值
+                // var searchType= $("#searchType").val();//初始化加载类型
+                return{
+                    page:this.pageNumber,
+                    rows:this.pageSize,
+                    CarName:startTime,
+                    // startTime:startTime, //条查部分
+                    // endTime:endTime//条查部分
+                };
+            },
+            columns:[
+                [
+                    {field:'111',title:'11',checkbox:true},
+                    {field:'carId',title:'id'},
+                    {field:"carName",title:"车名"},
+                    {field:'carPhoto',title:'商品图片',formatter:function (value,row,index) {
+
+                            return "<img width='70px' height='70px'>";
+                        }},
+                    {field:'carPingPai',title:'品牌'},
+                    {field:'carCheXi',title:'车系'},
+                    {field:'carPrice',title:'在售价'},
+                    {field:'carColor',title:'颜色'},
+                ]
+            ]
+        })
+    }
+
+
+    function searchCar() {
+        alert(555)
+        $("#bookTable").bootstrapTable('refresh',{
+            query:{
+                page:1
+            }
+        })
+    }
+</script>
+</html>

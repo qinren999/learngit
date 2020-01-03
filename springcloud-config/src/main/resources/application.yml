@@ -1,0 +1,20 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: cloud-config
+  cloud:
+    config:
+      server:
+        git:
+          password: sdhssb0305.
+          username: qinren999
+          #����git��·��
+          uri: https://github.com/qinren999/springcloud-demo.git
+          #����ͳһ��������ȥ���������ļ�
+          search-paths: springcloud-config/
+eureka:
+  client:
+    service-url:
+      #ע�����ĵ�ַ
+      defaultZone: http://localhost:8080/eureka

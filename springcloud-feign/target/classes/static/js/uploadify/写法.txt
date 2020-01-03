@@ -1,0 +1,65 @@
+@RequestMapping("upload")
+	@ResponseBody
+	public String upload(MultipartFile file,HttpServletRequest request){
+		String imgName = FileUtil.uploadFile(file, request);
+		return imgName;
+	}
+
+
+<!-- ���� uploadify  js�ļ� -->
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/uploadify/jquery.uploadify.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/js/uploadify/uploadify.css" />
+
+
+<!-- jsp д�� -->
+<td>��Ӱ����</td>
+<td>
+	<div id="show_file"></div>
+	<img id="show_img" width="100" height="100"/>
+	//改 name删掉
+	<input type="file" id="uploadImg" name="upFile"/>
+	//改 name
+	<input type="hidden" name='movie.movieImg' size="100"/>
+</td>
+
+
+
+
+//AJAX �첽 �ϴ��ļ� ��������� 
+	$("#uploadImg").uploadify({
+		//����Դ�  ���ɺ��ԵĲ���flash���
+		'swf': '<%=request.getContextPath()%>/js/uploadify/uploadify.swf',
+		//ǰ̨�����̨��url ���ɺ��ԵĲ��� ******
+		//改 upload.do
+		'uploader': '<%=request.getContextPath()%>/upLoadFile!upFile.action',
+		//��div�Ľ�����ӱ��� ���ɺ���******
+		'queueID': 'show_file',
+		//�ϴ��ļ��ļ��� ��file��ǩ nameֵ ����һ��******
+		//改 file
+		'fileObjName' : 'file',
+		//���ϴ���ť��������
+		//改 上传
+		'buttonText': '上传',
+		//�����ļ��Ƿ��Զ��ϴ�
+		'auto': true,
+		//����ͬʱѡ�����ļ� Ĭ��Ϊtrue  ���ɺ���
+		'multi': true,
+		//�ϴ�������Ƿ���ʧ
+		'removeCompleted': true,
+		//������ʧʱ��
+		'removeTimeout' : 1,
+		//�ϴ��ļ��ĸ�����Ŀ��һ�������ϴ��ļ��ĸ���
+		'uploadLimit':  -1,
+		//�ϴ��ļ�������
+		'fileTypeExts': '*.*',
+		//�ɹ��ص����� file���ļ�����data��̨������
+		'onUploadSuccess':function(file,data,response){
+				//alert(data);
+
+			//ͼƬ���ԣ� Ԥ��
+			$("#show_img").attr("src","<%=request.getContextPath()%>/upload/"+data)
+			// �ı��� ����
+			//改 name
+			$("[name='mimg']").val(data);
+		}
+});

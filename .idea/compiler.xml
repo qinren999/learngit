@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring-common" />
+        <module name="springcloud-config" />
+        <module name="springcloud-feign" />
+        <module name="springcloud-provide" />
+        <module name="springcloud-eureka" />
+        <module name="spring_api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="API" target="1.7" />
+      <module name="API2" target="1.7" />
+      <module name="common" target="1.7" />
+      <module name="springcloud-api" target="1.7" />
+      <module name="springcloud-common" target="1.7" />
+      <module name="springcloud-interface" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="API" options="-parameters" />
+      <module name="API2" options="-parameters" />
+      <module name="common" options="" />
+      <module name="spring-common" options="-parameters" />
+      <module name="spring_api" options="-parameters" />
+      <module name="springcloud-api" options="-parameters" />
+      <module name="springcloud-common" options="-parameters" />
+      <module name="springcloud-config" options="-parameters" />
+      <module name="springcloud-eureka" options="-parameters" />
+      <module name="springcloud-feign" options="-parameters" />
+      <module name="springcloud-guazi" options="-parameters" />
+      <module name="springcloud-interface" options="-parameters" />
+      <module name="springcloud-provide" options="-parameters" />
+    </option>
+  </component>
+</project>
