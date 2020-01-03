@@ -141,7 +141,7 @@
       <workItem from="1577967460582" duration="4750000" />
       <workItem from="1577973201874" duration="1470000" />
       <workItem from="1578011201087" duration="6708000" />
-      <workItem from="1578034828864" duration="7046000" />
+      <workItem from="1578034828864" duration="7303000" />
     </task>
     <task id="LOCAL-00001" summary="车的实体类">
       <created>1577968017322</created>
@@ -305,10 +305,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1577791015840" />
-    <state x="275" y="99" key="Vcs.Push.Dialog.v2" timestamp="1578044463241">
+    <state x="275" y="99" key="Vcs.Push.Dialog.v2" timestamp="1578044714307">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="99" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578044463241" />
+    <state x="275" y="99" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1578044714307" />
     <state x="375" y="190" key="com.intellij.ide.util.TipDialog" timestamp="1578034839431">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
